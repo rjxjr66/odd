@@ -1,0 +1,15 @@
+h1 {
+    text-align: center;
+}
+
+ion-icon {
+    font-size: 30px;
+}
+
+.buttons {
+    display: flex;
+}
+
+.buttons ion-button {
+    flex: 1;
+}
