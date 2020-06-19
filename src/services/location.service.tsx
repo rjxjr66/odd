@@ -56,11 +56,48 @@ class LocationService {
         return list;
     }
 
+    async getMyReservation() {
+        const result = await firebase.firestore().collection('/odd/ZEmHGVHq05UCeQHclQ2u/book')
+        .where('userId', '==', UserService.currentUser.id)
+        .get()
+
+        const list: ParkingLot[] = [];
+        result.forEach(async _=>{
+            list.push(await this.getInfo(_.data().parkingLotId))
+        })
+
+        return list;
+    }
+
     async getInfo(id: string) {
         const result = await firebase.firestore().doc(`/odd/ZEmHGVHq05UCeQHclQ2u/locations/${id}`)
             .get()
 
         return { id, ...result.data() } as ParkingLot;
+    }
+
+    async book(id: string) {
+        const result = await firebase.firestore().collection('/odd/ZEmHGVHq05UCeQHclQ2u/book')
+            .add({
+                userId: UserService.currentUser.id,
+                parkingLotId: id
+            })
+    }
+
+    async cancel(id: string) {
+        const result = await firebase.firestore().collection('/odd/ZEmHGVHq05UCeQHclQ2u/book')
+            .where('userId', '==', UserService.currentUser.id)
+            .where('parkingLotId', '==', id)
+            .get()
+
+        result.forEach(async _=>{
+            await firebase.firestore().collection('/odd/ZEmHGVHq05UCeQHclQ2u/book').doc(_.id).delete()
+        })
+    }
+
+    async delete(id: string) {
+        const result = await firebase.firestore().doc(`/odd/ZEmHGVHq05UCeQHclQ2u/locations/${id}`)
+            .delete()
     }
 }
 

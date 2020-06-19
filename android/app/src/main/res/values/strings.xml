@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">어디대</string>
+    <string name="title_activity_main">odd</string>
+    <string name="package_name">me.hssa.odd</string>
+    <string name="custom_url_scheme">me.hssa.odd</string>
+</resources>

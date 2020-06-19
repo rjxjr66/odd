@@ -6,7 +6,7 @@ import locationService from '../services/location.service';
 
 
 
-const LocationInfo: React.FC<RouteComponentProps<{ id: string; tab: string; }>> = ({ match }) => {
+const LocationInfo: React.FC<RouteComponentProps<{ id: string; tab: string; }>> = ({ match, history }) => {
     const [showAlert, setShowAlert] = React.useState<boolean>(false);
     const [info, setInfo] = React.useState<ParkingLot | null>(null);
 
@@ -27,8 +27,6 @@ const LocationInfo: React.FC<RouteComponentProps<{ id: string; tab: string; }>> 
                 </IonToolbar>
             </IonHeader>
             <IonContent>
-                <img src="https://shareditassets.s3.ap-northeast-2.amazonaws.com/production/uploads/post/featured_image/936/%EB%A7%9B%EC%A7%91.JPG"></img>
-
                 <IonList>
                     <IonItem>
                         <IonLabel>
@@ -69,11 +67,26 @@ const LocationInfo: React.FC<RouteComponentProps<{ id: string; tab: string; }>> 
                     subHeader={info?.name}
                     message={`${info?.startDttm}~${info?.endDttm}`}
                     buttons={['취소', {
-                        text: '확인',
+                        text: match.params.tab=='1'?'예약하기':(match.params.tab=='2'?'예약취소':'등록취소'),
                         role: 'cancel',
                         cssClass: 'secondary',
-                        handler: () => {
-                          
+                        handler: async () => {
+                          switch (match.params.tab) {
+                              case '1':
+                                await locationService.book(match.params.id)
+                                alert('예약이 완료되었습니다.')
+                              break;
+                              case '2':
+                                await locationService.cancel(match.params.id)
+                                alert('취소되었습니다.')
+                                history.goBack()
+                              break;
+                              case '3':
+                                await locationService.delete(match.params.id)
+                                alert('삭제가 완료되었습니다.')
+                                history.goBack()
+                              break;
+                          }
                         }
                       }]}
                 />
