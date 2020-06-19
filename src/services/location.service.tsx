@@ -15,6 +15,10 @@ class LocationService {
         .subscribe(console.log)
     }
 
+    async unlock() {
+        //
+    }
+
     async addLocation(info: ParkingLot) {
         return await firebase.firestore().collection('/odd/ZEmHGVHq05UCeQHclQ2u/locations').add({
             ...info,

@@ -14,7 +14,7 @@
     "allowNavigation": [
       "*://postcode.map.daum.net/*"
     ],
-    "url": "http://localhost:8100",
+    "url": "http://192.168.0.188:8100",
     "cleartext": true
   }
 }

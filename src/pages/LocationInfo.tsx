@@ -14,10 +14,10 @@ const LocationInfo: React.FC<RouteComponentProps<{ id: string; tab: string; }>> 
     const getInfo = async ()=>setInfo(await locationService.getInfo(match.params.id))
     const unlock = async ()=>{
         if (unlocked) {
-            await locationService.stopAdvertising();
+            await locationService.lock();
             setUnlocked(false)
         } else {
-            await locationService.startAdvertising()
+            await locationService.unlock()
             setUnlocked(true)
         }
     }
