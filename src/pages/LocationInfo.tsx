@@ -8,9 +8,19 @@ import locationService from '../services/location.service';
 
 const LocationInfo: React.FC<RouteComponentProps<{ id: string; tab: string; }>> = ({ match, history }) => {
     const [showAlert, setShowAlert] = React.useState<boolean>(false);
+    const [ unlocked, setUnlocked ] = React.useState<boolean>(false); 
     const [info, setInfo] = React.useState<ParkingLot | null>(null);
 
     const getInfo = async ()=>setInfo(await locationService.getInfo(match.params.id))
+    const unlock = async ()=>{
+        if (unlocked) {
+            await locationService.stopAdvertising();
+            setUnlocked(false)
+        } else {
+            await locationService.startAdvertising()
+            setUnlocked(true)
+        }
+    }
 
     if (!info) {
         getInfo()
@@ -55,6 +65,13 @@ const LocationInfo: React.FC<RouteComponentProps<{ id: string; tab: string; }>> 
                 </IonList>
             </IonContent>
             <IonFooter>
+                {match.params.tab=='2'?
+                <IonButton 
+                    expand="full" onClick={() => unlock()} color='primary'
+                >
+                    { !unlocked ? '사용하기' : '사용종료' }
+                </IonButton>
+                :''}
                 <IonButton 
                     expand="full" onClick={() => setShowAlert(true)}
                     color={match.params.tab=='1'?'primary':'danger'}

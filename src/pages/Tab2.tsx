@@ -1,16 +1,17 @@
 import React from 'react';
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, useIonViewWillEnter } from '@ionic/react';
 import './Tab2.css';
 import ParkingList from '../components/ParkingList';
 import { ParkingLot } from '../models/ParkingLot';
 import locationService from '../services/location.service';
 
 const Tab2: React.FC = () => {
-  const [myList, setMyList] = React.useState<ParkingLot[]>([]);
+  const [myLocation, setMyLocation] = React.useState<ParkingLot[]>([]);
+  useIonViewWillEnter(()=>{
+    getMyLocation()
+  })
 
-  React.useEffect(()=>{
-    locationService.getMyReservation().then(setMyList)
-  }, [])
+  const getMyLocation = async ()=>setMyLocation( await locationService.getMyReservation() )
 
   return (
     <IonPage>
@@ -20,7 +21,7 @@ const Tab2: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent>
-        <ParkingList tab="2" list={myList} removable={false}></ParkingList>
+        <ParkingList tab="2" list={myLocation} removable={false}></ParkingList>
       </IonContent>
     </IonPage>
   );
