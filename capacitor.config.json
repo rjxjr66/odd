@@ -12,8 +12,7 @@
     "cordova": {},
     "server": {
         "allowNavigation": [
-            "*://postcode.map.daum.net/*",
-            "*://t1.daumcdn.net/postcode/*"
+            "*://postcode.map.daum.net/*"
         ]
     }
 }

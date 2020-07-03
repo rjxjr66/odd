@@ -5,6 +5,7 @@
     <domain-config cleartextTrafficPermitted="true">
 
         <domain includeSubdomains="true">postcode.map.daum.net</domain>
+        <domain includeSubdomains="true">t1.daumcdn.net</domain>
 
     </domain-config>
 
