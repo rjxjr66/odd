@@ -44,18 +44,7 @@ const Tab1: React.FC = () => {
   }
 
   return (
-    <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonTitle>주차공간검색</IonTitle>
-        </IonToolbar>
-      </IonHeader>
-      <IonContent>
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">검색</IonTitle>
-          </IonToolbar>
-        </IonHeader>
+    <div className='container'>
         <IonGrid>
           <IonRow>
             <IonCol>
@@ -70,8 +59,7 @@ const Tab1: React.FC = () => {
           showSearchbar?searchBar():null
         }
         <ParkingList list={searchResult} removable={false} tab="1"></ParkingList>
-      </IonContent>
-    </IonPage>
+    </div>
   );
 };
 

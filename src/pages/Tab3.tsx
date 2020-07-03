@@ -15,21 +15,9 @@ const Tab3: React.FC = () => {
   const getMyLocation = async ()=>setMyLocation( await locationService.getMyLocation() )
 
   return (
-    <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonTitle>주차공간등록</IonTitle>
-          <IonButtons slot="end">
-            <IonButton fill="clear" routerLink="/add">
-              <IonIcon slot="icon-only" icon={addOutline}></IonIcon>
-            </IonButton>
-          </IonButtons>
-        </IonToolbar>
-      </IonHeader>
-      <IonContent>
+      <div className="container">
         <ParkingList tab="3" list={myLocation} removable={true}></ParkingList>
-      </IonContent>
-    </IonPage>
+      </div>
   );
 };
 
