@@ -2,6 +2,7 @@ import React from 'react';
 import { IonPage, IonHeader, IonToolbar, IonButtons, IonBackButton, IonTitle, IonContent, IonButton, IonList, IonItem, IonLabel, IonInput, IonItemGroup, IonItemDivider, IonDatetime } from '@ionic/react';
 import { RouteComponentProps } from 'react-router';
 import LocationService from '../services/location.service';
+import './AddLocation.css'
 
 declare const daum: any;
 declare const kakao: any;
@@ -30,7 +31,8 @@ export const AddLocation: React.FC<RouteComponentProps> = ({ history }) => {
                     showPostcode: false,
                     value: data.address
                 });
-            }
+            },
+            width: '100vw'
         }).embed(layer.current);
     }
 
@@ -68,7 +70,7 @@ export const AddLocation: React.FC<RouteComponentProps> = ({ history }) => {
                 </IonToolbar>
             </IonHeader>
             <IonContent>
-                <div ref={layer}></div>
+                <div ref={layer} className='postcode'></div>
                 {!address.showPostcode ? (<IonList>
                     <IonItemGroup>
                         <IonItemDivider>
