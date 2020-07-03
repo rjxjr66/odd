@@ -1,20 +1,19 @@
 {
-  "appId": "me.hssa.odd",
-  "appName": "odd",
-  "bundledWebRuntime": false,
-  "npmClient": "npm",
-  "webDir": "build",
-  "plugins": {
-    "SplashScreen": {
-      "launchShowDuration": 0
+    "appId": "me.hssa.odd",
+    "appName": "odd",
+    "bundledWebRuntime": false,
+    "npmClient": "npm",
+    "webDir": "build",
+    "plugins": {
+        "SplashScreen": {
+            "launchShowDuration": 0
+        }
+    },
+    "cordova": {},
+    "server": {
+        "allowNavigation": [
+            "*://postcode.map.daum.net/*",
+            "*://t1.daumcdn.net/postcode/*"
+        ]
     }
-  },
-  "cordova": {},
-  "server": {
-    "allowNavigation": [
-      "*://postcode.map.daum.net/*"
-    ],
-    "url": "http://192.168.0.188:8100",
-    "cleartext": true
-  }
 }

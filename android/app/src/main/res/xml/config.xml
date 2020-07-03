@@ -6,5 +6,9 @@
     <param name="android-package" value="com.megster.cordova.ble.central.BLECentralPlugin"/>
   </feature>
 
+  <feature name="Geolocation">
+    <param name="android-package" value="org.apache.cordova.geolocation.Geolocation"/>
+  </feature>
+
   
 </widget>

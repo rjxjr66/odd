@@ -7,25 +7,36 @@ declare const daum: any;
 declare const kakao: any;
 
 export const AddLocation: React.FC<RouteComponentProps> = ({ history }) => {
-    const [ address, setAddress ] = React.useState<string>();
+    const [address, setAddress] = React.useState<any>({
+        value: '',
+        showPostcode: false
+    });
     const name = React.useRef<any>();
     const detailAddress = React.useRef<any>();
     const nParkingLot = React.useRef<any>();
     const price = React.useRef<any>();
     const startDttm = React.useRef<any>();
     const endDttm = React.useRef<any>();
+    const layer = React.useRef<any>();
 
     const searchAddress = () => {
+        setAddress({
+            showPostcode: true,
+            value: address.value
+        });
         new daum.Postcode({
             oncomplete: (data: any) => {
-                setAddress(data.address);
+                setAddress({
+                    showPostcode: false,
+                    value: data.address
+                });
             }
-        }).open();
+        }).embed(layer.current);
     }
 
     const addLocation = () => {
         let geocoder = new kakao.maps.services.Geocoder();
-        geocoder.addressSearch(address, async (data: any)=>{
+        geocoder.addressSearch(address, async (data: any) => {
             if (data.length > 0) {
                 await LocationService.addLocation({
                     name: name.current.value,
@@ -57,7 +68,8 @@ export const AddLocation: React.FC<RouteComponentProps> = ({ history }) => {
                 </IonToolbar>
             </IonHeader>
             <IonContent>
-                <IonList>
+                <div ref={layer}></div>
+                {!address.showPostcode ? (<IonList>
                     <IonItemGroup>
                         <IonItemDivider>
                             <IonLabel>기본정보</IonLabel>
@@ -71,16 +83,16 @@ export const AddLocation: React.FC<RouteComponentProps> = ({ history }) => {
                         <IonItem>
                             <IonLabel>
                                 주소
-                                { address?(<p>{address}</p>):null }
+                                {address.value ? (<p>{address.value}</p>) : null}
                             </IonLabel>
                             <IonButton onClick={searchAddress}>검색</IonButton>
                         </IonItem>
-                        {address?(<IonItem>
+                        {address ? (<IonItem>
                             <IonLabel>
                                 상세주소
                             </IonLabel>
                             <IonInput ref={detailAddress} placeholder="상세주소를 입력하세요.."></IonInput>
-                        </IonItem>):null}
+                        </IonItem>) : null}
                         <IonItem>
                             <IonLabel>
                                 주차가능차량수
@@ -111,7 +123,8 @@ export const AddLocation: React.FC<RouteComponentProps> = ({ history }) => {
                             <IonDatetime ref={endDttm} displayFormat="h:mm a"></IonDatetime>
                         </IonItem>
                     </IonItemGroup>
-                </IonList>
+                </IonList>) : null}
+
             </IonContent>
         </IonPage>
     )

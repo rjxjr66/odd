@@ -3,20 +3,42 @@ import UserService from './user.service';
 import { ParkingLot } from '../models/ParkingLot';
 import { BLE } from '@ionic-native/ble';
 
+function stringToBytes(string: string) {
+    var array = new Uint8Array(string.length);
+    for (var i = 0, l = string.length; i < l; i++) {
+        array[i] = string.charCodeAt(i);
+     }
+     return array.buffer;
+ }
+
 class LocationService {
-    SERVICE_UUID = '6E400001-B5A3-F393-E0A9-E50E24DCCA9E';
+    MAC = 'FC:C7:83:42:73:49';
+    UUID = "6e400001-b5a3-f393-e0a9-e50e24dcca9e"
 
     constructor() {
 
     }
 
     async lock() {
-        BLE.scan([], 5)
-        .subscribe(console.log)
+        return new Promise((resolve, reject)=>{
+            BLE.connect(this.MAC).subscribe(peripheralData=>{
+                console.log(peripheralData)
+                BLE.write(this.MAC, '6e400001-b5a3-f393-e0a9-e50e24dcca9e', '6e400002-b5a3-f393-e0a9-e50e24dcca9e', stringToBytes('l'));
+                BLE.disconnect(this.MAC)
+                resolve()
+            });
+        });
     }
 
     async unlock() {
-        //
+        return new Promise((resolve, reject)=>{
+            BLE.connect(this.MAC).subscribe(peripheralData=>{
+                console.log(peripheralData)
+                BLE.write(this.MAC, '6e400001-b5a3-f393-e0a9-e50e24dcca9e', '6e400002-b5a3-f393-e0a9-e50e24dcca9e', stringToBytes('u'));
+                BLE.disconnect(this.MAC)
+                resolve()
+            });
+        });
     }
 
     async addLocation(info: ParkingLot) {

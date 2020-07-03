@@ -8,6 +8,7 @@ import './Tab1.css';
 import ParkingList from '../components/ParkingList';
 import { ParkingLot } from '../models/ParkingLot';
 import LocationService from '../services/location.service'
+import { Geolocation } from '@ionic-native/geolocation';
 
 const Tab1: React.FC = () => {
   const [showSearchbar, setShowSearchbar] = useState(false);
@@ -15,10 +16,10 @@ const Tab1: React.FC = () => {
 
   const keyword = useRef<any>();
 
-  const nearBySearch = ()=>{
-    navigator.geolocation.getCurrentPosition(async (position) => {
-      setSearchResult(await LocationService.searchNearBy(position.coords.latitude, position.coords.longitude))
-    });
+  const nearBySearch = async ()=>{
+    const position = await Geolocation.getCurrentPosition()
+    console.log(position);
+    setSearchResult(await LocationService.searchNearBy(position.coords.latitude, position.coords.longitude))
   }
 
   const keywordSearch = async ()=>{
