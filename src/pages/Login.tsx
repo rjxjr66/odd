@@ -14,6 +14,7 @@ import {
 import './Login.css'
 import { personCircleOutline, keyOutline } from 'ionicons/icons';
 import { RouteComponentProps } from 'react-router';
+import { OddButton } from '../components/OddButton';
 
 const Login: React.FC<RouteComponentProps> = ( { history } )=>{
     const login = async () => {
@@ -25,13 +26,17 @@ const Login: React.FC<RouteComponentProps> = ( { history } )=>{
         }
     }
 
+    const signin = () => {
+        history.push('/signin');
+    }
+
     const id = React.useRef<any>()
     const password = React.useRef<any>()
 
     return (
         <IonPage>
             <IonContent>
-                <h1>로그인</h1>
+                <h1>어디대</h1>
 
                 <IonItem>
                     <IonLabel>
@@ -46,8 +51,8 @@ const Login: React.FC<RouteComponentProps> = ( { history } )=>{
                     <IonInput type="password" ref={password} placeholder="비밀번호"></IonInput>
                 </IonItem>
                 <div className="buttons">
-                    <IonButton expand="full" onClick={login}>로그인</IonButton>
-                    <IonButton routerLink="signin" expand="full" color="light">회원가입</IonButton>
+                    <OddButton onClick={login}>로그인</OddButton>
+                    <OddButton onClick={signin}>회원가입</OddButton>
                 </div>
             </IonContent>
         </IonPage>

@@ -8,7 +8,10 @@ import {
   IonTabBar,
   IonTabButton,
   IonTabs,
-  IonLoading
+  IonLoading,
+  IonFab,
+  IonFabButton,
+  IonFabList
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 
@@ -39,6 +42,8 @@ import LocationInfo from './pages/LocationInfo';
 import { AddLocation } from './pages/AddLocation';
 import firebase from 'firebase';
 import userService from './services/user.service';
+import Tab1 from './pages/Tab1';
+import { share, logoVimeo, logoFacebook, logoInstagram, logoTwitter } from 'ionicons/icons';
 
 const App: React.FC = () => {
   const [loading, setLoading] = React.useState<boolean>(true);
@@ -62,16 +67,27 @@ const App: React.FC = () => {
           message={'기다려 주세요...'}
         />
       ) : (
-        <IonRouterOutlet>
-          <Route path="/home" component={Home} />
-          <Route path="/signin" component={SignIn} exact={true} />
-          <Route path="/info/:tab/:id" component={LocationInfo} />
-          <Route path="/add" component={AddLocation} />
-          <Route path="/login" component={Login} exact={true} />
-          <Route path="/" render={() => <Redirect to={logedIn?'/home':'/login'} />} exact={true} />
-        </IonRouterOutlet>
-      )}
+          <IonRouterOutlet>
+            <Route path="/home" component={Tab1} />
+            <Route path="/signin" component={SignIn} exact={true} />
+            <Route path="/info/:tab/:id" component={LocationInfo} />
+            <Route path="/add" component={AddLocation} />
+            <Route path="/login" component={Login} exact={true} />
+            <Route path="/" render={() => <Redirect to={logedIn ? '/home' : '/login'} />} exact={true} />
+          </IonRouterOutlet>
+        )}
     </IonReactRouter>
+    {logedIn ? (<IonFab vertical="bottom" horizontal="start" slot="fixed">
+      <IonFabButton>
+        <IonIcon icon={share} />
+      </IonFabButton>
+      <IonFabList side="end">
+        <IonFabButton><IonIcon icon={logoVimeo} /></IonFabButton>
+        <IonFabButton><IonIcon icon={logoFacebook} /></IonFabButton>
+        <IonFabButton><IonIcon icon={logoInstagram} /></IonFabButton>
+        <IonFabButton><IonIcon icon={logoTwitter} /></IonFabButton>
+      </IonFabList>
+    </IonFab>) : null}
   </IonApp>
   )
 };

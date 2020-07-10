@@ -6,6 +6,7 @@ import { personCircleOutline, keyOutline, pricetagOutline, callOutline, carOutli
 import { RouteComponentProps } from 'react-router';
 
 import userService from '../services/user.service';
+import { OddButton } from '../components/OddButton';
 
 const SignIn: React.FC<RouteComponentProps> = ({ history }) => {
     const email = React.useRef<any>();
@@ -78,7 +79,7 @@ const SignIn: React.FC<RouteComponentProps> = ({ history }) => {
                     <IonInput ref={carNumber} placeholder="차량번호"></IonInput>
                 </IonItem>
                 <div className="buttons">
-                    <IonButton onClick={signin} expand="full" color="light">회원가입</IonButton>
+                    <OddButton onClick={signin}>회원가입</OddButton>
                 </div>
             </IonContent>
         </IonPage>
