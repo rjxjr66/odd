@@ -5,7 +5,8 @@ import {
     IonContent,
     IonFooter,
     IonSlides,
-    IonSlide
+    IonSlide,
+    IonIcon
 } from '@ionic/react';
 import { searchOutline, bookOutline, addCircleOutline, person, personCircleOutline } from 'ionicons/icons';
 import Tab1 from './Tab1';
@@ -27,10 +28,10 @@ const Home: React.FC<RouteComponentProps> = ({ history }) => (
         </IonContent>
         <IonFooter>
             <ul>
-                <li>검색</li>
-                <li>예약</li>
-                <li>등록</li>
-                <li>내정보</li>
+                <li><IonIcon icon={searchOutline}></IonIcon>검색</li>
+                <li><IonIcon icon={bookOutline}></IonIcon>예약</li>
+                <li><IonIcon icon={addCircleOutline}></IonIcon>등록</li>
+                <li><IonIcon icon={personCircleOutline}></IonIcon>내정보</li>
             </ul>
         </IonFooter>
     </IonPage>
