@@ -1,0 +1,14 @@
+div.parking-lot {
+    margin: 0 auto 16px auto;
+    width: 90%;
+    display: flex;
+    .thumbnail {
+        width: 90px;
+        height: 90px;
+        object-fit: cover;
+    }
+    .content {
+        flex: 1;
+        padding-left: 8px;
+    }
+}
