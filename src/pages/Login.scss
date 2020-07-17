@@ -27,6 +27,9 @@ button:first-of-type {
 
 ion-content {
     --background: linear-gradient(315deg, rgba(61, 241, 255, 1) 0%, rgba(44, 170, 231, 1) 100%);
+    &.white {
+        --background: #fff;
+    }
 }
 
 ion-item {

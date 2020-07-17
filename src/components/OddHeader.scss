@@ -1,0 +1,29 @@
+header {
+    div.content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        min-height: 200px;
+        background: rgb(47, 184, 236);
+        z-index: 1;
+        border-bottom-left-radius: 40px;
+        border-bottom-right-radius: 40px;
+        ion-button {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+        }
+        h3 {
+            color: #fff;
+            margin: 0;
+            font-size: 40px;
+        }
+    }
+    div.dummy {
+        min-height: 200px;
+    }
+}

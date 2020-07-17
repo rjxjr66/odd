@@ -1,7 +1,9 @@
 div.parking-lot {
-    margin: 0 auto 16px auto;
-    width: 90%;
+    margin: 0;
+    width: 100%;
     display: flex;
+    background: #fff;
+    border-bottom: 1px solid lightgray;
     .thumbnail {
         width: 90px;
         height: 90px;

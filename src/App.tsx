@@ -2,16 +2,8 @@ import React from 'react';
 import { Redirect, Route } from 'react-router-dom';
 import {
   IonApp,
-  IonIcon,
-  IonLabel,
   IonRouterOutlet,
-  IonTabBar,
-  IonTabButton,
-  IonTabs,
   IonLoading,
-  IonFab,
-  IonFabButton,
-  IonFabList
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 
@@ -35,7 +27,6 @@ import '@ionic/react/css/display.css';
 import './theme/variables.css';
 import './App.css';
 
-import Home from './pages/Home';
 import Login from './pages/Login';
 import SignIn from './pages/SignIn';
 import LocationInfo from './pages/LocationInfo';
@@ -43,7 +34,9 @@ import { AddLocation } from './pages/AddLocation';
 import firebase from 'firebase';
 import userService from './services/user.service';
 import Tab1 from './pages/Tab1';
-import { share, logoVimeo, logoFacebook, logoInstagram, logoTwitter } from 'ionicons/icons';
+import Tab2 from './pages/Tab2';
+import Tab3 from './pages/Tab3';
+import Tab4 from './pages/Tab4';
 
 const App: React.FC = () => {
   const [loading, setLoading] = React.useState<boolean>(true);
@@ -69,25 +62,17 @@ const App: React.FC = () => {
       ) : (
           <IonRouterOutlet>
             <Route path="/home" component={Tab1} />
+            <Route path="/reserve" component={Tab2} />
+            <Route path="/mylot" component={Tab3} />
+            <Route path="/mypage" component={Tab4} />
             <Route path="/signin" component={SignIn} exact={true} />
-            <Route path="/info/:tab/:id" component={LocationInfo} />
+            <Route path="/info/:id" component={LocationInfo} />
             <Route path="/add" component={AddLocation} />
             <Route path="/login" component={Login} exact={true} />
             <Route path="/" render={() => <Redirect to={logedIn ? '/home' : '/login'} />} exact={true} />
           </IonRouterOutlet>
         )}
     </IonReactRouter>
-    {logedIn ? (<IonFab vertical="bottom" horizontal="start" slot="fixed">
-      <IonFabButton>
-        <IonIcon icon={share} />
-      </IonFabButton>
-      <IonFabList side="end">
-        <IonFabButton><IonIcon icon={logoVimeo} /></IonFabButton>
-        <IonFabButton><IonIcon icon={logoFacebook} /></IonFabButton>
-        <IonFabButton><IonIcon icon={logoInstagram} /></IonFabButton>
-        <IonFabButton><IonIcon icon={logoTwitter} /></IonFabButton>
-      </IonFabList>
-    </IonFab>) : null}
   </IonApp>
   )
 };

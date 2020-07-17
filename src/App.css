@@ -10,4 +10,19 @@
 
 :root {
     --ion-font-family: "Noto Sans KR", sans-serif;
+    --ion-background-color: transparent;
+}
+
+ion-header {
+    --background: transparent;
+}
+
+ion-toolbar {
+    --border-width: 0 !important;
+    --color: #fff;
+    --background: transparent;
+}
+
+ion-title {
+    text-align: center;
 }

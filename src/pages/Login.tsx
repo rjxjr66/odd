@@ -11,7 +11,7 @@ import {
     IonButton
 } from '@ionic/react';
 
-import './Login.css'
+import './Login.scss'
 import { personCircleOutline, keyOutline } from 'ionicons/icons';
 import { RouteComponentProps } from 'react-router';
 import { OddButton } from '../components/OddButton';
