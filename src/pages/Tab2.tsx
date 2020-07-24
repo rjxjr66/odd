@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { IonContent, IonPage, useIonViewWillEnter } from '@ionic/react';
+import { IonContent, IonPage, useIonViewDidEnter } from '@ionic/react';
 import './Tab2.css';
 import ParkingList from '../components/ParkingList';
 import { ParkingLot } from '../models/ParkingLot';
@@ -9,7 +9,7 @@ import { RouteComponentProps } from 'react-router';
 
 const Tab2: React.FC<RouteComponentProps> = ({ history }) => {
   const [myLocation, setMyLocation] = React.useState<ParkingLot[]>([]);
-  useIonViewWillEnter(async () => {
+  useIonViewDidEnter(async () => {
     locationService.getMyReservation().then(setMyLocation)
   })
 

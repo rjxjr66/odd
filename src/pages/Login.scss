@@ -1,39 +1,35 @@
-h1 {
-    margin: 30% 0 15% 0;
-    text-align: center;
-    color: #fff;
-    font-size: 60px;
-}
-
-ion-icon {
-    font-size: 30px;
-}
-
-.buttons {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    margin-top: 10px;
-    height: 200px;
-}
-
-button:first-of-type {
-    margin-right: 10px;
-}
-
-.buttons ion-button {
-    flex: 1;
-}
-
-ion-content {
-    --background: linear-gradient(315deg, rgba(61, 241, 255, 1) 0%, rgba(44, 170, 231, 1) 100%);
-    &.white {
-        --background: #fff;
+.Login {
+    h1 {
+        margin: 30% 0 15% 0;
+        text-align: center;
+        color: #fff;
+        font-size: 60px;
     }
-}
-
-ion-item {
-    border-radius: 50px;
-    margin: 4px auto;
-    width: 290px;
+    ion-icon {
+        font-size: 30px;
+    }
+    .buttons {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        margin-top: 10px;
+        height: 200px;
+    }
+    button:first-of-type {
+        margin-right: 10px;
+    }
+    .buttons ion-button {
+        flex: 1;
+    }
+    ion-content {
+        --background: linear-gradient(315deg, rgba(61, 241, 255, 1) 0%, rgba(44, 170, 231, 1) 100%);
+        &.white {
+            --background: #fff;
+        }
+    }
+    ion-item {
+        border-radius: 50px;
+        margin: 4px auto;
+        width: 290px;
+    }
 }

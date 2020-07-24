@@ -34,7 +34,7 @@ const Login: React.FC<RouteComponentProps> = ( { history } )=>{
     const password = React.useRef<any>()
 
     return (
-        <IonPage>
+        <IonPage className="Login">
             <IonContent>
                 <h1>어디대</h1>
 

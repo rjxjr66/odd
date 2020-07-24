@@ -2,14 +2,20 @@ import { IonHeader, IonToolbar, IonTitle, IonPage, IonContent, IonList, IonItem,
 import React from "react";
 import UserService from '../services/user.service'
 import { RouteComponentProps } from "react-router";
+import { OddHeader } from "../components/OddHeader";
 
 const Tab4: React.FC<{ history: any }> = ({ history }) => {
     const logout = async () => {
         await UserService.logout();
         history.replace('/login');
     }
+
+    const [scrollY, setScrollY] = React.useState<number>(0);
+
     return (
-        <div className="container">
+        <IonPage>
+            <IonContent className="white" scrollEvents={true} onIonScroll={(ev)=>setScrollY(ev.detail.scrollTop)}>
+            <OddHeader history={history} scrollY={scrollY}>예약목록</OddHeader>
             <IonList>
                 <IonItem>
                     <IonLabel>이름</IonLabel>
@@ -24,7 +30,8 @@ const Tab4: React.FC<{ history: any }> = ({ history }) => {
                     <IonButton color="danger" onClick={logout}>로그아웃</IonButton>
                 </IonItem>
             </IonList>
-        </div>
+            </IonContent>
+        </IonPage>
     )
 }
 
