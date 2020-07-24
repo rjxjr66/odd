@@ -1,0 +1,34 @@
+.OddModal {
+    &.backdrop {
+        position: fixed;
+        top: calc(100vh - 100px);
+        z-index: 99;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &.active {
+            background: rgba(0, 0, 0, 0.8);
+            top: 0;
+        }
+    }
+    .container {
+        position: relative;
+        background: linear-gradient(315deg, rgba(61, 241, 255, 1) 0%, rgba(44, 170, 231, 1) 100%);
+        border-radius: 45px;
+        width: calc(100vw - 60px);
+        height: calc(100vh - 60px);
+        .handler {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 79px;
+            height: 3px;
+            border-radius: 7px;
+            background-color: #ffffff;
+        }
+    }
+}
