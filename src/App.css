@@ -26,3 +26,21 @@ ion-toolbar {
 ion-title {
     text-align: center;
 }
+
+ion-input {
+    width: 100%;
+    height: 50px;
+    --padding-start: 24px !important;
+    border-radius: 46px;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    --background: #ffffff !important;
+    margin-bottom: 13px;
+}
+
+ion-content {
+    --background: linear-gradient(315deg, rgba(61, 241, 255, 1) 0%, rgba(44, 170, 231, 1) 100%);
+}
+
+ion-content.white {
+    --background: #fff;
+}

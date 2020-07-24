@@ -4,7 +4,7 @@ import {
   IonTitle, IonToolbar, IonButton,
   IonGrid, IonRow, IonCol, IonButtons, IonBackButton, IonFab, IonFabButton, IonIcon, IonFabList
 } from '@ionic/react';
-import './Tab1.css';
+import './Tab1.scss';
 import ParkingList from '../components/ParkingList';
 import { ParkingLot } from '../models/ParkingLot';
 import LocationService from '../services/location.service'
@@ -45,7 +45,7 @@ const Tab1: React.FC = () => {
   }
 
   return (
-    <IonPage>
+    <IonPage className="Tab1">
       <IonContent>
       <IonGrid>
         <IonRow>
@@ -72,6 +72,11 @@ const Tab1: React.FC = () => {
           <IonFabButton routerLink="/mypage"><IonIcon icon={personCircle} /></IonFabButton>
         </IonFabList>
       </IonFab>
+
+      <div className="ellipse Ellipse-12"></div>
+      <div className="ellipse Ellipse-2"></div>
+      <div className="ellipse Ellipse-5"></div>
+
       </IonContent>
     </IonPage>
 

@@ -1,0 +1,26 @@
+.Tab1 {
+    .ellipse {
+        position: absolute;
+        border-radius: 50%;
+    }
+    .Ellipse-2 {
+        left: -66px;
+        bottom: -66px;
+        width: 312px;
+        height: 312px;
+        filter: blur(4px);
+        border: solid 30px rgba(255, 255, 255, 0.63);
+    }
+    .Ellipse-5 {
+        width: 16px;
+        height: 16px;
+        border: solid 8px rgba(255, 255, 255, 0.52);
+    }
+    .Ellipse-12 {
+        width: 101px;
+        height: 101px;
+        -webkit-filter: blur(4px);
+        filter: blur(4px);
+        border: solid 23px rgba(255, 255, 255, 0.69);
+    }
+}
