@@ -66,7 +66,7 @@ const App: React.FC = () => {
             <Route path="/mylot" component={Tab3} />
             <Route path="/mypage" component={Tab4} />
             <Route path="/signin" component={SignIn} exact={true} />
-            <Route path="/info/:id" component={LocationInfo} />
+            <Route path="/info/:tab/:id" component={LocationInfo} />
             <Route path="/add" component={AddLocation} />
             <Route path="/login" component={Login} exact={true} />
             <Route path="/" render={() => <Redirect to={logedIn ? '/home' : '/login'} />} exact={true} />

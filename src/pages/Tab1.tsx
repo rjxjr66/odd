@@ -61,7 +61,6 @@ const Tab1: React.FC = () => {
       {
         showSearchbar ? searchBar() : null
       }
-      <ParkingList list={searchResult} removable={false} tab="1"></ParkingList>
       <IonFab vertical="bottom" horizontal="start" slot="fixed">
         <IonFabButton>
           <IonIcon icon={menu} />
