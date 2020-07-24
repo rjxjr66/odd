@@ -3,6 +3,8 @@ import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonBu
 import { RouteComponentProps } from 'react-router';
 import { ParkingLot } from '../models/ParkingLot';
 import locationService from '../services/location.service';
+import { OddHeader } from '../components/OddHeader';
+import { OddModal } from '../components/OddModal';
 
 
 
@@ -26,17 +28,12 @@ const LocationInfo: React.FC<RouteComponentProps<{ id: string; tab: string; }>> 
         getInfo()
     }
 
+    const [scrollY, setScrollY] = React.useState<number>(0);
+
     return (
         <IonPage>
-            <IonHeader>
-                <IonToolbar>
-                    <IonButtons slot="start">
-                        <IonBackButton />
-                    </IonButtons>
-                    <IonTitle>주차장 정보</IonTitle>
-                </IonToolbar>
-            </IonHeader>
-            <IonContent>
+            <IonContent className="white" scrollEvents={true} onIonScroll={(ev)=>setScrollY(ev.detail.scrollTop)}>
+                <OddHeader history={history} scrollY={scrollY}>주차장 상세</OddHeader>
                 <IonList>
                     <IonItem>
                         <IonLabel>
@@ -63,7 +60,9 @@ const LocationInfo: React.FC<RouteComponentProps<{ id: string; tab: string; }>> 
                         </IonLabel>
                     </IonItem>
                 </IonList>
+                <OddModal></OddModal>
             </IonContent>
+            {/*
             <IonFooter>
                 {match.params.tab=='2'?
                 <IonButton 
@@ -108,6 +107,7 @@ const LocationInfo: React.FC<RouteComponentProps<{ id: string; tab: string; }>> 
                       }]}
                 />
             </IonFooter>
+            */}
         </IonPage>
     );
 }

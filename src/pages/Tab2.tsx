@@ -19,7 +19,7 @@ const Tab2: React.FC<RouteComponentProps> = ({ history }) => {
     <IonPage>
       <IonContent className="white" scrollEvents={true} onIonScroll={(ev)=>setScrollY(ev.detail.scrollTop)}>
         <OddHeader history={history} scrollY={scrollY}>예약목록</OddHeader>
-        <ParkingList tab="2" list={myLocation} removable={false}></ParkingList>
+        <ParkingList history={history} tab="2" list={myLocation} removable={false}></ParkingList>
         <br/>
         <br/>
         <br/>
