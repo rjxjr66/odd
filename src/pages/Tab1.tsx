@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import {
   IonContent, IonHeader, IonPage, IonSearchbar, IonList, IonItem, IonLabel,
   IonTitle, IonToolbar, IonButton,
@@ -13,49 +13,47 @@ import { menu, personCircle } from 'ionicons/icons';
 import { OddButton } from '../components/OddButton';
 
 const Tab1: React.FC = () => {
-  const [showSearchbar, setShowSearchbar] = useState(false);
-  const [searchResult, setSearchResult] = useState<ParkingLot[]>([]);
-
+  const [fadeIn, setFadeIn] = useState<boolean>(false);
+  useEffect(()=>{
+    setTimeout(()=>{
+      setFadeIn(true);
+    }, 0)
+  }, [])
+  
   const keyword = useRef<any>();
 
   const nearBySearch = async () => {
-    const position = await Geolocation.getCurrentPosition()
-    console.log(position);
-    setSearchResult(await LocationService.searchNearBy(position.coords.latitude, position.coords.longitude))
+    // const position = await Geolocation.getCurrentPosition()
+    // console.log(position);
+    // setSearchResult(await LocationService.searchNearBy(position.coords.latitude, position.coords.longitude))
   }
 
   const keywordSearch = async () => {
-    setSearchResult(await LocationService.searchByKeyword(keyword.current.value));
-  }
-
-  function searchBar() {
-    return (
-      <IonGrid>
-        <IonRow>
-          <IonCol>
-            <IonSearchbar ref={keyword}></IonSearchbar>
-          </IonCol>
-        </IonRow>
-        <IonRow>
-          <IonCol>
-            <IonButton onClick={keywordSearch} expand="full">검색</IonButton>
-          </IonCol>
-        </IonRow>
-      </IonGrid>
-    );
+    // setSearchResult(await LocationService.searchByKeyword(keyword.current.value));
   }
 
   return (
     <IonPage className="Tab1">
       <IonContent>
         <h1>어디대</h1>
-        <div className="buttons">
-          <OddButton onClick={nearBySearch}>주변 검색</OddButton>
-          <OddButton onClick={() => setShowSearchbar(!showSearchbar)}>키워드 검색</OddButton>
+
+        <div className={"fade-in" + (fadeIn?" active":'')}>
+          <div className="buttons">
+            <OddButton onClick={nearBySearch}>주변 검색</OddButton>
+            <OddButton onClick={()=>{}}>키워드 검색</OddButton>
+          </div>
+
+          <div className="ellipse Ellipse-1"></div>
+          <div className="ellipse Ellipse-2"></div>
+          <div className="ellipse Ellipse-3"></div>
+          <div className="ellipse Ellipse-4"></div>
+          <div className="ellipse Ellipse-5"></div>
+          <div className="ellipse Ellipse-6"></div>
+          <div className="ellipse Ellipse-7"></div>
+          <div className="ellipse Ellipse-8"></div>
+          <div className="ellipse Ellipse-12"></div>
         </div>
-        {
-          showSearchbar ? searchBar() : null
-        }
+
         <IonFab vertical="bottom" horizontal="start" slot="fixed">
           <IonFabButton>
             <IonIcon icon={menu} />
@@ -68,16 +66,6 @@ const Tab1: React.FC = () => {
 
           </IonFabList>
         </IonFab>
-
-        <div className="ellipse Ellipse-1"></div>
-        <div className="ellipse Ellipse-2"></div>
-        <div className="ellipse Ellipse-3"></div>
-        <div className="ellipse Ellipse-4"></div>
-        <div className="ellipse Ellipse-5"></div>
-        <div className="ellipse Ellipse-6"></div>
-        <div className="ellipse Ellipse-7"></div>
-        <div className="ellipse Ellipse-8"></div>
-        <div className="ellipse Ellipse-12"></div>
 
       </IonContent>
     </IonPage>

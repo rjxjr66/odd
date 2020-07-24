@@ -1,4 +1,11 @@
 .Tab1 {
+    .fade-in {
+        opacity: 0;
+        transition: opacity 1s;
+        &.active {
+            opacity: 1;
+        }
+    }
     h1 {
         margin: 35% 0 30% 0;
         text-align: center;
@@ -90,6 +97,5 @@
         align-items: center;
         margin-top: 10px;
         height: 200px;
-        
     }
 }
