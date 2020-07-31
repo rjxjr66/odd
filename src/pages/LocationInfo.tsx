@@ -60,7 +60,7 @@ const LocationInfo: React.FC<RouteComponentProps<{ id: string; tab: string; }>> 
                         </IonLabel>
                     </IonItem>
                 </IonList>
-                <OddModal></OddModal>
+                <OddModal title=""></OddModal>
             </IonContent>
             {/*
             <IonFooter>

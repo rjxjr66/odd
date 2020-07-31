@@ -37,6 +37,8 @@ import Tab1 from './pages/Tab1';
 import Tab2 from './pages/Tab2';
 import Tab3 from './pages/Tab3';
 import Tab4 from './pages/Tab4';
+import Nearby from './pages/Nearby';
+import Keyword from './pages/Keyword';
 
 const App: React.FC = () => {
   const [loading, setLoading] = React.useState<boolean>(true);
@@ -69,6 +71,8 @@ const App: React.FC = () => {
             <Route path="/info/:tab/:id" component={LocationInfo} />
             <Route path="/add" component={AddLocation} />
             <Route path="/login" component={Login} exact={true} />
+            <Route path="/nearby" component={Nearby} exact={true} />
+            <Route path="/keyword" component={Keyword} exact={true} />
             <Route path="/" render={() => <Redirect to={logedIn ? '/home' : '/login'} />} exact={true} />
           </IonRouterOutlet>
         )}
