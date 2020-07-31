@@ -17,12 +17,12 @@ const Tab1: React.FC<RouteChildrenProps> = ({ history }) => {
   
   const keyword = useRef<any>();
 
-  const nearBySearch = async () => {
+  const nearBySearch = () => {
     history.push('/nearby')
   }
 
-  const keywordSearch = async () => {
-    history.push('keyword')
+  const keywordSearch = () => {
+    history.push('/keyword')
   }
 
   return (
