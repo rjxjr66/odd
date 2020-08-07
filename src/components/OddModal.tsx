@@ -1,7 +1,7 @@
 import React from 'react';
 import './OddModal.scss';
 
-export const OddModal: React.FC = () => {
+export const OddModal: React.FC< { title: string } > = ({ title, children }) => {
     const backdrop = React.useRef<any>();
     const [ isOpened, setIsOpened ] = React.useState<boolean>(false);
     const onClick = () => {
@@ -11,8 +11,10 @@ export const OddModal: React.FC = () => {
 
     return (
         <div className={'OddModal backdrop' + (isOpened?' active':'')} ref={backdrop}>
-            <div draggable="true" className='container' onClick={onClick}>
+            <div className='container'>
                 <div className="handler"></div>
+                <h5 onClick={onClick}>{title}</h5>
+                {children}
             </div>
         </div>
     )

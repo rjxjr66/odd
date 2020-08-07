@@ -1,18 +1,13 @@
 import React, { useState, useRef, useEffect } from 'react';
 import {
-  IonContent, IonHeader, IonPage, IonSearchbar, IonList, IonItem, IonLabel,
-  IonTitle, IonToolbar, IonButton,
-  IonGrid, IonRow, IonCol, IonButtons, IonBackButton, IonFab, IonFabButton, IonIcon, IonFabList
+  IonContent, IonPage, IonFab, IonFabButton, IonIcon, IonFabList
 } from '@ionic/react';
 import './Tab1.scss';
-import ParkingList from '../components/ParkingList';
-import { ParkingLot } from '../models/ParkingLot';
-import LocationService from '../services/location.service'
-import { Geolocation } from '@ionic-native/geolocation';
 import { menu, personCircle } from 'ionicons/icons';
 import { OddButton } from '../components/OddButton';
+import { RouteChildrenProps } from 'react-router';
 
-const Tab1: React.FC = () => {
+const Tab1: React.FC<RouteChildrenProps> = ({ history }) => {
   const [fadeIn, setFadeIn] = useState<boolean>(false);
   useEffect(()=>{
     setTimeout(()=>{
@@ -22,14 +17,12 @@ const Tab1: React.FC = () => {
   
   const keyword = useRef<any>();
 
-  const nearBySearch = async () => {
-    // const position = await Geolocation.getCurrentPosition()
-    // console.log(position);
-    // setSearchResult(await LocationService.searchNearBy(position.coords.latitude, position.coords.longitude))
+  const nearBySearch = () => {
+    history.push('/nearby')
   }
 
-  const keywordSearch = async () => {
-    // setSearchResult(await LocationService.searchByKeyword(keyword.current.value));
+  const keywordSearch = () => {
+    history.push('/keyword')
   }
 
   return (
@@ -40,7 +33,7 @@ const Tab1: React.FC = () => {
         <div className={"fade-in" + (fadeIn?" active":'')}>
           <div className="buttons">
             <OddButton onClick={nearBySearch}>주변 검색</OddButton>
-            <OddButton onClick={()=>{}}>키워드 검색</OddButton>
+            <OddButton onClick={keywordSearch}>키워드 검색</OddButton>
           </div>
 
           <div className="ellipse Ellipse-1"></div>
