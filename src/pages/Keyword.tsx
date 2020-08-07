@@ -9,7 +9,7 @@ import { RouteComponentProps } from 'react-router';
 import { Geolocation } from '@ionic-native/geolocation';
 
 const Keyword: React.FC<RouteComponentProps> = ({ history }) => {
-  const [lists, setMyLocation] = React.useState<ParkingLot[]>([]);
+  const [lists, setMyLocation] = React.useState<ParkingLot[] | null>(null);
   const keyword = React.useRef<any>();
 
   const getResult = async () => {

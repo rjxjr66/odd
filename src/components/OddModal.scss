@@ -17,6 +17,9 @@
     .container {
         position: relative;
         background: linear-gradient(315deg, rgba(61, 241, 255, 1) 0%, rgba(44, 170, 231, 1) 100%);
+        &.green {
+            background: linear-gradient(to top, rgba(65, 232, 129, 0.26), rgba(103, 232, 65, 0.42)), linear-gradient(to top, #47ffc2, #b1ff47);
+        }
         border-radius: 45px;
         width: calc(100vw - 60px);
         height: calc(100vh - 60px);

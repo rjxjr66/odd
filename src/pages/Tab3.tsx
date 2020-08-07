@@ -10,7 +10,7 @@ import { OddHeader } from '../components/OddHeader';
 import { OddModal } from '../components/OddModal';
 
 const Tab3: React.FC<RouteComponentProps> = ({ history }) => {
-  const [myLocation, setMyLocation] = React.useState<ParkingLot[]>([]);
+  const [myLocation, setMyLocation] = React.useState<ParkingLot[] | null>(null);
   useIonViewWillEnter(()=>{
     getMyLocation()
   })
@@ -24,7 +24,7 @@ const Tab3: React.FC<RouteComponentProps> = ({ history }) => {
       <IonContent className="white" scrollEvents={true} onIonScroll={(ev)=>setScrollY(ev.detail.scrollTop)}>
         <OddHeader history={history} scrollY={scrollY}>내 주차장</OddHeader>
         <ParkingList history={history} tab="3" list={myLocation} removable={true}></ParkingList>
-        <OddModal title="등록하기"></OddModal>
+        <OddModal color="blue" title="등록하기"></OddModal>
       </IonContent>
     </IonPage>
   );

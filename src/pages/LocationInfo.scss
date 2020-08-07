@@ -1,0 +1,15 @@
+.LocationInfo {
+    div.cancel {
+        button {
+            display: block;
+            width: 155px;
+            margin: 308px auto 0 auto;
+            background-image: linear-gradient(to top, #ff332d, #ff6921);
+            span {
+                background: #fff;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+        }
+    }
+}
