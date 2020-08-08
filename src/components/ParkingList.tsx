@@ -3,25 +3,30 @@ import { IonList, IonItem, IonLabel, IonText, IonItemSliding, IonItemOptions, Io
 import React from 'react';
 import { ParkingLot } from '../models/ParkingLot';
 import { ParkingItem } from './ParkingItem';
-import { RouteComponentProps } from 'react-router';
+import { ParkingItemLoading } from './ParkingItemLoading';
 
 interface ParkingListProp {
-    list: ParkingLot[]
+    list: ParkingLot[] | null
     removable: boolean,
     tab: string,
     history: any
 }
 
 const ParkingList: React.FC<ParkingListProp> = ({ list, tab, history }) => {
-    if (!list) {
-        list = []
+    if (list) {
+        return (
+            <IonList>
+                { list.map((value, index) => <ParkingItem history={history} tab={tab} key={value.id} item={value}></ParkingItem>) }
+            </IonList>
+        )
+    } else {
+        return (
+            <IonList>
+                <ParkingItemLoading></ParkingItemLoading>
+                <ParkingItemLoading></ParkingItemLoading>
+            </IonList>
+        )
     }
-    
-    return (
-        <IonList>
-            { list.map((value, index) => <ParkingItem history={history} tab={tab} key={value.id} item={value}></ParkingItem>) }
-        </IonList>
-    )
 }
 
 export default ParkingList;

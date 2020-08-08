@@ -5,7 +5,9 @@ import { ParkingLot } from '../models/ParkingLot';
 import locationService from '../services/location.service';
 import { OddHeader } from '../components/OddHeader';
 import { OddModal } from '../components/OddModal';
+import { OddButton } from '../components/OddButton';
 
+import './LocationInfo.scss'
 
 
 const LocationInfo: React.FC<RouteComponentProps<{ id: string; tab: string; }>> = ({ match, history }) => {
@@ -30,8 +32,43 @@ const LocationInfo: React.FC<RouteComponentProps<{ id: string; tab: string; }>> 
 
     const [scrollY, setScrollY] = React.useState<number>(0);
 
+    const reservation = ()=> {
+        return (
+            <div className="reservation">
+
+            </div>
+        )
+    }
+    
+    const cancel = ()=> {
+        const cancel = async ()=>{
+            await locationService.cancel(match.params.id)
+                alert('취소되었습니다.')
+                history.goBack()
+        }
+
+        return (
+            <div className="cancel">
+                <OddButton onClick={cancel}>예약취소</OddButton>
+            </div>
+        )
+    }
+
+    const remove = ()=> {
+        const remove = async ()=>{
+            await locationService.delete(match.params.id)
+            alert('삭제가 완료되었습니다.')
+            history.goBack()
+        }
+
+        return (
+            <div className="remove">
+                <OddButton onClick={remove}>등록취소</OddButton>
+            </div>
+        )
+    }
     return (
-        <IonPage>
+        <IonPage className="LocationInfo">
             <IonContent className="white" scrollEvents={true} onIonScroll={(ev)=>setScrollY(ev.detail.scrollTop)}>
                 <OddHeader history={history} scrollY={scrollY}>주차장 상세</OddHeader>
                 <IonList>
@@ -60,7 +97,9 @@ const LocationInfo: React.FC<RouteComponentProps<{ id: string; tab: string; }>> 
                         </IonLabel>
                     </IonItem>
                 </IonList>
-                <OddModal title=""></OddModal>
+                <OddModal color={match.params.tab=='2'?'green':'blue'} title={match.params.tab=='1'?'예약하기':(match.params.tab=='2'?'예약 되었습니다.':'등록취소')}>
+                    {match.params.tab=='1'?reservation():(match.params.tab=='2'?cancel():remove())}
+                </OddModal>
             </IonContent>
             {/*
             <IonFooter>

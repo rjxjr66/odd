@@ -8,7 +8,7 @@ import { OddHeader } from '../components/OddHeader';
 import { RouteComponentProps } from 'react-router';
 
 const Tab2: React.FC<RouteComponentProps> = ({ history }) => {
-  const [myLocation, setMyLocation] = React.useState<ParkingLot[]>([]);
+  const [myLocation, setMyLocation] = React.useState<ParkingLot[] | null>(null);
   useIonViewDidEnter(async () => {
     locationService.getMyReservation().then(setMyLocation)
   })
