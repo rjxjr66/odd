@@ -53,9 +53,9 @@ const Tab1: React.FC<RouteChildrenProps> = ({ history }) => {
           </IonFabButton>
           <IonFabList side="end">
 
-            <IonFabButton routerLink="/reserve">예약</IonFabButton>
-            <IonFabButton routerLink="/mylot">등록</IonFabButton>
-            <IonFabButton routerLink="/mypage"><IonIcon icon={personCircle} /></IonFabButton>
+            <IonFabButton className="Book" routerLink="/reserve"><IonIcon src="assets/Book.svg"/></IonFabButton>
+            <IonFabButton className="Add" routerLink="/mylot"><IonIcon src="assets/Add.svg"/></IonFabButton>
+            <IonFabButton className="Myinfo" routerLink="/mypage"><IonIcon src="assets/Myinfo.svg"/></IonFabButton>
 
           </IonFabList>
         </IonFab>

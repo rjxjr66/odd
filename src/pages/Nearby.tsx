@@ -22,6 +22,37 @@ const Nearby: React.FC<RouteComponentProps> = ({ history }) => {
       <IonContent className="white" scrollEvents={true} onIonScroll={(ev)=>setScrollY(ev.detail.scrollTop)}>
         <OddHeader history={history} scrollY={scrollY}>주변</OddHeader>
         <ParkingList history={history} tab="1" list={lists} removable={false}></ParkingList>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/><br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/><br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/><br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/><br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/><br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
       </IonContent>
     </IonPage>
   );

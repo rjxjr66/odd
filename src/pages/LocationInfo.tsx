@@ -54,7 +54,7 @@ const LocationInfo: React.FC<RouteComponentProps<{ id: string; tab: string; }>> 
                     <IonItem>
                         <IonLabel>
                             <IonText>
-                                <h2>주차공간</h2>
+                                <h2>주차장 이름</h2>
                             </IonText>
                             <p>{info?.name}</p>
                         </IonLabel>
