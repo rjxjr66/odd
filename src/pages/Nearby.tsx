@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { IonContent, IonPage, useIonViewDidEnter } from '@ionic/react';
-import './Keyword.css';
+import './Nearby.scss';
 import ParkingList from '../components/ParkingList';
 import { ParkingLot } from '../models/ParkingLot';
 import locationService from '../services/location.service';
