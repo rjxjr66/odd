@@ -1,21 +1,35 @@
-.postcode>div {
+.postcode > div {
     width: 100% !important;
     height: calc(100vh - 56px) !important;
 }
 
-.postcode>div>iframe {
+.postcode > div > iframe {
     width: 100% !important;
     height: calc(100vh - 56px) !important;
+}
+ion-datetime {
+    .button {
+        border-radius: 0%;
+    }
 }
 
 .AddLocation {
+    .sc-ion-label-md-s > p {
+        color: #fff;
+        font-size: 20px;
+    }
     .OddButton {
+        min-width: 80px;
         display: block;
-        width: 155px;
+        width: 120px;
+        margin-bottom: 10px;
         margin: 0 auto;
     }
     ion-input {
-        margin: 8px 0 0 8px;
+        border-radius: 0%;
+        box-shadow: none;
+        margin-bottom: 0%;
+        margin-top: 8px;
     }
     ion-item,
     ion-item-divider,
@@ -23,8 +37,17 @@
         --border-width: 0;
         border: none !important;
     }
+
     ion-label {
         color: #fff !important;
         font-weight: bold;
+    }
+    ion-item-group {
+        .OddButton {
+            display: flex;
+            width: 40px;
+            padding: 8px;
+            padding-left: 20px;
+        }
     }
 }
