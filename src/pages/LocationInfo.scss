@@ -1,10 +1,20 @@
 .LocationInfo {
-    div.cancel {
+    .pannel {
+        margin-top: 30px;
+        padding: 0 16px;
+        h5 {
+            text-align: left;
+        }
         button {
             display: block;
             width: 155px;
-            margin: 308px auto 0 auto;
+            margin: 32px auto;
+        }
+    }
+    div.cancel {
+        button {
             background-image: linear-gradient(to top, #ff332d, #ff6921);
+            margin: 308px auto 0 auto;
             span {
                 background: #fff;
                 -webkit-background-clip: text;

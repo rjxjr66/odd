@@ -1,5 +1,5 @@
 import React from 'react';
-import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonButton, IonIcon, IonBackButton, IonList, IonItem, IonLabel, IonText, IonFooter, IonAlert } from '@ionic/react';
+import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonButton, IonIcon, IonBackButton, IonList, IonItem, IonLabel, IonText, IonFooter, IonAlert, IonDatetime } from '@ionic/react';
 import { RouteComponentProps } from 'react-router';
 import { ParkingLot } from '../models/ParkingLot';
 import locationService from '../services/location.service';
@@ -34,8 +34,14 @@ const LocationInfo: React.FC<RouteComponentProps<{ id: string; tab: string; }>> 
 
     const reservation = ()=> {
         return (
-            <div className="reservation">
-
+            <div className="pannel reservation">
+                <h5>날짜</h5>
+                <IonDatetime displayFormat="YYYY/MM/DD" min={new Date().toISOString()} value={new Date().toISOString()}></IonDatetime>
+                <h5>시작시간</h5>
+                <IonDatetime displayFormat="h:mm a" value={info?.startDttm}></IonDatetime>
+                <h5>종료시간</h5>
+                <IonDatetime displayFormat="h:mm a" value={info?.endDttm}></IonDatetime>
+                <OddButton onClick={cancel}>입력완료</OddButton>
             </div>
         )
     }
@@ -48,7 +54,7 @@ const LocationInfo: React.FC<RouteComponentProps<{ id: string; tab: string; }>> 
         }
 
         return (
-            <div className="cancel">
+            <div className="pannel cancel">
                 <OddButton onClick={cancel}>예약취소</OddButton>
             </div>
         )
@@ -62,7 +68,7 @@ const LocationInfo: React.FC<RouteComponentProps<{ id: string; tab: string; }>> 
         }
 
         return (
-            <div className="remove">
+            <div className="pannel remove">
                 <OddButton onClick={remove}>등록취소</OddButton>
             </div>
         )
