@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { IonContent, IonPage, useIonViewDidEnter } from '@ionic/react';
-import './Tab2.css';
+import './ReservationPage.css';
 import ParkingList from '../components/ParkingList';
 import { ParkingLot } from '../models/ParkingLot';
 import locationService from '../services/location.service';
 import { OddHeader } from '../components/OddHeader';
 import { RouteComponentProps } from 'react-router';
 
-const Tab2: React.FC<RouteComponentProps> = ({ history }) => {
+const ReservationPage: React.FC<RouteComponentProps> = ({ history }) => {
   const [myLocation, setMyLocation] = React.useState<ParkingLot[] | null>(null);
   useIonViewDidEnter(async () => {
     locationService.getMyReservation().then(setMyLocation)
@@ -75,4 +75,4 @@ const Tab2: React.FC<RouteComponentProps> = ({ history }) => {
   );
 };
 
-export default Tab2;
+export default ReservationPage;

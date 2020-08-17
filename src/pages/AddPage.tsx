@@ -1,6 +1,6 @@
 import React from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButtons, IonButton, IonIcon, useIonViewWillEnter } from '@ionic/react';
-import './Tab3.css';
+import './AddPage.css';
 import ParkingList from '../components/ParkingList';
 import { ParkingLot } from '../models/ParkingLot';
 import locationService from '../services/location.service';
@@ -8,7 +8,7 @@ import { RouteComponentProps } from 'react-router';
 import { OddHeader } from '../components/OddHeader';
 import { OddModal } from '../components/OddModal';
 
-const Tab3: React.FC<RouteComponentProps> = ({ history }) => {
+const AddPage: React.FC<RouteComponentProps> = ({ history }) => {
   const [myLocation, setMyLocation] = React.useState<ParkingLot[] | null>(null);
   useIonViewWillEnter(()=>{
     getMyLocation()
@@ -29,4 +29,4 @@ const Tab3: React.FC<RouteComponentProps> = ({ history }) => {
   );
 };
 
-export default Tab3;
+export default AddPage;

@@ -2,12 +2,12 @@ import React, { useState, useRef, useEffect } from 'react';
 import {
   IonContent, IonPage, IonFab, IonFabButton, IonIcon, IonFabList
 } from '@ionic/react';
-import './Tab1.scss';
+import './SearchPage.scss';
 import { menu } from 'ionicons/icons';
 import { OddButton } from '../components/OddButton';
 import { RouteChildrenProps } from 'react-router';
 
-const Tab1: React.FC<RouteChildrenProps> = ({ history }) => {
+const SearchPage: React.FC<RouteChildrenProps> = ({ history }) => {
   const [fadeIn, setFadeIn] = useState<boolean>(false);
   useEffect(() => {
     setTimeout(() => {
@@ -65,4 +65,4 @@ const Tab1: React.FC<RouteChildrenProps> = ({ history }) => {
   );
 };
 
-export default Tab1;
+export default SearchPage;

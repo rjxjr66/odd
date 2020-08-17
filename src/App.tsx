@@ -33,10 +33,10 @@ import LocationInfo from './pages/LocationInfo';
 import { AddLocation } from './pages/AddLocation';
 import firebase from 'firebase';
 import userService from './services/user.service';
-import Tab1 from './pages/Tab1';
-import Tab2 from './pages/Tab2';
-import Tab3 from './pages/Tab3';
-import Tab4 from './pages/Tab4';
+import SearchPage from './pages/SearchPage';
+import ReservationPage from './pages/ReservationPage';
+import AddPage from './pages/AddPage';
+import MyPage from './pages/MyPage';
 import Nearby from './pages/Nearby';
 import Keyword from './pages/Keyword';
 
@@ -63,10 +63,10 @@ const App: React.FC = () => {
         />
       ) : (
           <IonRouterOutlet>
-            <Route path="/home" component={Tab1} />
-            <Route path="/reserve" component={Tab2} />
-            <Route path="/mylot" component={Tab3} />
-            <Route path="/mypage" component={Tab4} />
+            <Route path="/home" component={SearchPage} />
+            <Route path="/reserve" component={ReservationPage} />
+            <Route path="/mylot" component={AddPage} />
+            <Route path="/mypage" component={MyPage} />
             <Route path="/signin" component={SignIn} exact={true} />
             <Route path="/info/:tab/:id" component={LocationInfo} />
             <Route path="/add" component={AddLocation} />

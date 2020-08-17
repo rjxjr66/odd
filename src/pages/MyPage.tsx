@@ -2,10 +2,10 @@ import { IonPage, IonContent, IonList, IonItem, IonLabel, IonButton, IonText } f
 import React from "react";
 import UserService from '../services/user.service'
 import { OddHeader } from "../components/OddHeader";
-import './Tab4.scss';
+import './MyPage.scss';
 import { OddButton } from "../components/OddButton";
 
-const Tab4: React.FC<{ history: any }> = ({ history }) => {
+const MyPage: React.FC<{ history: any }> = ({ history }) => {
     const logout = async () => {
         await UserService.logout();
         history.replace('/login');
@@ -37,4 +37,4 @@ const Tab4: React.FC<{ history: any }> = ({ history }) => {
     )
 }
 
-export default Tab4;
+export default MyPage;
