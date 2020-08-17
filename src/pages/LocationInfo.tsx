@@ -11,7 +11,6 @@ import './LocationInfo.scss'
 
 
 const LocationInfo: React.FC<RouteComponentProps<{ id: string; tab: string; }>> = ({ match, history }) => {
-    const [showAlert, setShowAlert] = React.useState<boolean>(false);
     const [ unlocked, setUnlocked ] = React.useState<boolean>(false); 
     const [info, setInfo] = React.useState<ParkingLot | null>(null);
 
@@ -33,6 +32,11 @@ const LocationInfo: React.FC<RouteComponentProps<{ id: string; tab: string; }>> 
     const [scrollY, setScrollY] = React.useState<number>(0);
 
     const reservation = ()=> {
+        const reservation = async () => {
+            await locationService.book(match.params.id);
+            alert('예약이 완료되었습니다.')
+            history.replace('/reserve')
+        }
         return (
             <div className="pannel reservation">
                 <h5>날짜</h5>
@@ -41,7 +45,7 @@ const LocationInfo: React.FC<RouteComponentProps<{ id: string; tab: string; }>> 
                 <IonDatetime displayFormat="h:mm a" value={info?.startDttm}></IonDatetime>
                 <h5>종료시간</h5>
                 <IonDatetime displayFormat="h:mm a" value={info?.endDttm}></IonDatetime>
-                <OddButton onClick={cancel}>입력완료</OddButton>
+                <OddButton onClick={reservation}>입력완료</OddButton>
             </div>
         )
     }
@@ -55,6 +59,7 @@ const LocationInfo: React.FC<RouteComponentProps<{ id: string; tab: string; }>> 
 
         return (
             <div className="pannel cancel">
+                <OddButton onClick={unlock}>{ !unlocked ? '사용하기' : '사용종료' }</OddButton>
                 <OddButton onClick={cancel}>예약취소</OddButton>
             </div>
         )

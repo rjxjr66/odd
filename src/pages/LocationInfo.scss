@@ -5,14 +5,14 @@
         h5 {
             text-align: left;
         }
-        button {
+        .OddButton {
             display: block;
             width: 155px;
             margin: 32px auto;
         }
     }
     div.cancel {
-        button {
+        .OddButton {
             background-image: linear-gradient(to top, #ff332d, #ff6921);
             margin: 308px auto 0 auto;
             span {

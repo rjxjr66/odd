@@ -46,3 +46,7 @@ ion-content {
 ion-content.white {
     --background: #fff;
 }
+
+.picker-wrapper {
+    background: #fff !important;
+}
