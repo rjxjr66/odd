@@ -14,7 +14,7 @@ const OddModalComponent: React.ForwardRefRenderFunction< OddModalRef, { title: s
     }))
 
     return (
-        <div className={'OddModal backdrop' + (isOpened?' active':'')} ref={backdrop}>
+        <div onClick={isOpened?onClick:()=>{}} className={'OddModal backdrop' + (isOpened?' active':'')} ref={backdrop}>
             <div className={'container' + (color=='green'?' green':'')}>
                 <div className="handler"></div>
                 <h5 onClick={onClick}>{title}</h5>
