@@ -12,7 +12,7 @@ export const AddLocation: React.FC<{ onDone: ()=>void }> = ({ onDone }) => {
         value: '',
         showPostcode: false
     });
-    const name = React.useRef<any>();
+    const [name, setName] = React.useState<string>('');
     const detailAddress = React.useRef<any>();
     const nParkingLot = React.useRef<any>();
     const price = React.useRef<any>();
@@ -41,7 +41,7 @@ export const AddLocation: React.FC<{ onDone: ()=>void }> = ({ onDone }) => {
         geocoder.addressSearch(address.value, async (data: any) => {
             if (data.length > 0) {
                 await LocationService.addLocation({
-                    name: name.current.value,
+                    name,
                     address: address.value + ' ' + detailAddress.current.value,
                     lat: parseFloat(data[0].y),
                     lng: parseFloat(data[0].x),
@@ -68,7 +68,7 @@ export const AddLocation: React.FC<{ onDone: ()=>void }> = ({ onDone }) => {
                             <IonLabel>
                                 주차장이름
                             </IonLabel>
-                            <IonInput ref={name} placeholder="주차장 이름을 입력하세요.."></IonInput>
+                            <IonInput value={name} onIonChange={(e: any)=>setName(e.target.value)} placeholder="주차장 이름을 입력하세요.."></IonInput>
                         </IonItem>
                         <IonItem>
                             <IonLabel>
