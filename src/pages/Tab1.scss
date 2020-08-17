@@ -42,62 +42,62 @@
     @keyframes yourAnimation5 {
         0% {
             transform: rotate(0) scale(1);
-            filter: blur(2px)
+            filter: blur(2px);
         }
         50% {
             transform: rotate(0) scale(1.05);
-            filter: blur(0px)
+            filter: blur(0px);
         }
         100% {
             transform: rotate(0) scale(1);
-            filter: blur(2px)
+            filter: blur(2px);
         }
     }
     @keyframes yourAnimation12 {
         0% {
-            transform: translateY(4px)
+            transform: translateY(4px);
         }
         50% {
-            transform: translateY(-1px)
+            transform: translateY(-1px);
         }
         100% {
-            transform: translateY(4px)
+            transform: translateY(4px);
         }
     }
     @keyframes yourAnimation6 {
         0% {
-            transform: translateY(4px)
+            transform: translateY(4px);
         }
         50% {
-            transform: translateY(-3px)
+            transform: translateY(-3px);
         }
         100% {
-            transform: translateY(4px)
+            transform: translateY(4px);
         }
     }
     @keyframes yourAnimation8 {
         0% {
             transform: rotate(0) scale(1);
-            filter: blur(3px)
+            filter: blur(3px);
         }
         50% {
             transform: rotate(0) scale(1.05);
-            filter: blur(0px)
+            filter: blur(0px);
         }
         100% {
             transform: rotate(0) scale(1);
-            filter: blur(3px)
+            filter: blur(3px);
         }
     }
     @keyframes yourAnimation7 {
         0% {
-            transform: translateY(3px)
+            transform: translateY(3px);
         }
         50% {
-            transform: translateY(-1px)
+            transform: translateY(-1px);
         }
         100% {
-            transform: translateY(3px)
+            transform: translateY(3px);
         }
     }
 
@@ -210,8 +210,26 @@
         top: 450px;
         animation: yourAnimation12 2s infinite 0s ease-in-out;
     }
-    ion-icon{
-        font-size: 20px;
+    .Menu {
+        font-size: 32px;
+    }
+    .Book {
+        font-size: 24px;
+    }
+    .Add {
+        font-size: 24px;
+    }
+    .Myinfo {
+        font-size: 32px;
     }
 }
 
+ion-fab {
+    bottom: 16px;
+    left: 16px;
+}
+ion-fab-list {
+    ion-fab-button {
+        --color-activated: gray;
+    }
+}

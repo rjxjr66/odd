@@ -19,7 +19,7 @@ export const OddHeader: React.FC<Props> = ({ children, scrollY, history }) => {
     return (
         <header>
             <div className="content" ref={content}>
-            <IonButton onClick={()=>history.goBack()} color="light" fill="clear"><IonIcon src="assets/Arrow.svg"/></IonButton>
+            <IonButton onClick={()=>history.goBack()} fill="clear"><IonIcon src="assets/Arrow.svg"/></IonButton>
             <h3 ref={h3}>{children}</h3>
             </div>
             <div className="dummy" ref={dummy}></div>

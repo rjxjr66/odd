@@ -1,0 +1,12 @@
+.Tab4 {
+    .logout{
+        text-align: center;
+        margin-top: 45%;
+
+        button span {
+            background: linear-gradient(135deg, #ff9900 0%,#ff0000 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    }
+}

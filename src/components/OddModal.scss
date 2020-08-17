@@ -10,13 +10,13 @@
         justify-content: center;
         align-items: center;
         &.active {
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(49, 49, 49, 0.6);
             top: 0;
         }
     }
     .container {
         position: relative;
-        background: linear-gradient(315deg, rgba(61, 241, 255, 1) 0%, rgba(44, 170, 231, 1) 100%);
+        background:linear-gradient(135deg, #3df1ff 0%,#33aeea 100%);
         &.green {
             background: linear-gradient(to top, rgba(65, 232, 129, 0.26), rgba(103, 232, 65, 0.42)), linear-gradient(to top, #47ffc2, #b1ff47);
         }
@@ -25,7 +25,7 @@
         height: calc(100vh - 60px);
         .handler {
             position: absolute;
-            top: 10px;
+            top: 12px;
             left: 50%;
             transform: translateX(-50%);
             width: 79px;
@@ -35,8 +35,9 @@
         }
         h5 {
             text-align: center;
+            margin-top: 24px;
             color: #fff;
-            font-size: 24px;
+            font-size: 32px;
             font-weight: bold;
         }
     }

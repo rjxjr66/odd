@@ -1,7 +1,6 @@
 import React from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButtons, IonButton, IonIcon, useIonViewWillEnter } from '@ionic/react';
 import './Tab3.css';
-import { addOutline } from 'ionicons/icons';
 import ParkingList from '../components/ParkingList';
 import { ParkingLot } from '../models/ParkingLot';
 import locationService from '../services/location.service';

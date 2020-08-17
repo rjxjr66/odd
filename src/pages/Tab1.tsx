@@ -3,18 +3,18 @@ import {
   IonContent, IonPage, IonFab, IonFabButton, IonIcon, IonFabList
 } from '@ionic/react';
 import './Tab1.scss';
-import { menu, personCircle } from 'ionicons/icons';
+import { menu } from 'ionicons/icons';
 import { OddButton } from '../components/OddButton';
 import { RouteChildrenProps } from 'react-router';
 
 const Tab1: React.FC<RouteChildrenProps> = ({ history }) => {
   const [fadeIn, setFadeIn] = useState<boolean>(false);
-  useEffect(()=>{
-    setTimeout(()=>{
+  useEffect(() => {
+    setTimeout(() => {
       setFadeIn(true);
     }, 0)
   }, [])
-  
+
   const keyword = useRef<any>();
 
   const nearBySearch = () => {
@@ -30,7 +30,7 @@ const Tab1: React.FC<RouteChildrenProps> = ({ history }) => {
       <IonContent>
         <h1>어디대</h1>
 
-        <div className={"fade-in" + (fadeIn?" active":'')}>
+        <div className={"fade-in" + (fadeIn ? " active" : '')}>
           <div className="buttons">
             <OddButton onClick={nearBySearch}>주변 검색</OddButton>
             <OddButton onClick={keywordSearch}>키워드 검색</OddButton>
@@ -49,17 +49,16 @@ const Tab1: React.FC<RouteChildrenProps> = ({ history }) => {
 
         <IonFab vertical="bottom" horizontal="start" slot="fixed">
           <IonFabButton>
-            <IonIcon icon={menu} />
+            <IonIcon className="Menu" icon={menu} />
           </IonFabButton>
           <IonFabList side="end">
 
-            <IonFabButton className="Book" routerLink="/reserve"><IonIcon src="assets/Book.svg"/></IonFabButton>
-            <IonFabButton className="Add" routerLink="/mylot"><IonIcon src="assets/Add.svg"/></IonFabButton>
-            <IonFabButton className="Myinfo" routerLink="/mypage"><IonIcon src="assets/Myinfo.svg"/></IonFabButton>
+            <IonFabButton routerLink="/reserve"><IonIcon className="Book" src="assets/Book.svg" /></IonFabButton>
+            <IonFabButton routerLink="/mylot"><IonIcon className="Add" src="assets/Add.svg" /></IonFabButton>
+            <IonFabButton routerLink="/mypage"><IonIcon className="Myinfo" src="assets/Myinfo.svg" /></IonFabButton>
 
           </IonFabList>
         </IonFab>
-
       </IonContent>
     </IonPage>
 

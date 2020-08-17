@@ -1,6 +1,5 @@
 import React from 'react';
 import './ParkingItemLoading.scss'
-import { ParkingLot } from '../models/ParkingLot';
 import { IonItem, IonAvatar, IonSkeletonText, IonLabel } from '@ionic/react';
 
 export const ParkingItemLoading: React.FC = () => {
