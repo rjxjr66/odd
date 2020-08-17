@@ -1,13 +1,13 @@
 import React from 'react';
-import { IonPage, IonHeader, IonToolbar, IonButtons, IonBackButton, IonTitle, IonContent, IonButton, IonList, IonItem, IonLabel, IonInput, IonItemGroup, IonItemDivider, IonDatetime } from '@ionic/react';
-import { RouteComponentProps } from 'react-router';
+import { IonButton, IonList, IonItem, IonLabel, IonInput, IonItemGroup, IonItemDivider, IonDatetime } from '@ionic/react';
 import LocationService from '../services/location.service';
-import './AddLocation.css'
+import './AddLocation.scss'
+import { OddButton } from '../components/OddButton';
 
 declare const daum: any;
 declare const kakao: any;
 
-export const AddLocation: React.FC<RouteComponentProps> = ({ history }) => {
+export const AddLocation: React.FC<{ onDone: ()=>void }> = ({ onDone }) => {
     const [address, setAddress] = React.useState<any>({
         value: '',
         showPostcode: false
@@ -51,7 +51,7 @@ export const AddLocation: React.FC<RouteComponentProps> = ({ history }) => {
                     endDttm: endDttm.current.value
                 });
 
-                history.goBack();
+                onDone();
             }
         })
     }
@@ -87,7 +87,7 @@ export const AddLocation: React.FC<RouteComponentProps> = ({ history }) => {
                             <IonLabel>
                                 주차가능차량수
                             </IonLabel>
-                            <IonInput ref={nParkingLot} placeholder="주차가능 차랑수를 입력하세요.." type="number"></IonInput>
+                            <IonInput ref={nParkingLot} placeholder="주차가능 차랑수" type="number"></IonInput>
                         </IonItem>
                         <IonItem>
                             <IonLabel>
@@ -114,7 +114,7 @@ export const AddLocation: React.FC<RouteComponentProps> = ({ history }) => {
                         </IonItem>
                     </IonItemGroup>
                 </IonList>) : null}
-                <IonButton fill="clear" onClick={addLocation}>등록</IonButton>
+                <OddButton onClick={addLocation}>등록</OddButton>
             </div>
     )
 };

@@ -1,30 +1,21 @@
 import React from 'react';
 import './OddModal.scss';
 
-export class OddModal extends React.Component< { title: string, color: string, children: any } > {
-    isOpened = false;
-    backdrop: any = null;
-    onClick = () => {
-        this.backdrop.current.style['transition'] = this.isOpened?' top 0.2s 0.5s, background-color 0.5s':'top 0.2s, background-color 0.5s 0.2s';
-        this.setState(()=>{
-            this.isOpened = !this.isOpened;
-        });
+export const OddModal: React.FC< { title: string, color: string } > = ({ title, children, color }) => {
+    const backdrop = React.useRef<any>();
+    const [ isOpened, setIsOpened ] = React.useState<boolean>(false);
+    const onClick = () => {
+        backdrop.current.style['transition'] = isOpened?' top 0.2s 0.5s, background-color 0.5s':'top 0.2s, background-color 0.5s 0.2s';
+        setIsOpened(!isOpened)
     }
 
-    constructor(private title: string, private color: string, private children: any) {
-        super({ title, color, children });
-        this.backdrop = React.createRef();
-    }
-
-    render() {
-        return (
-            <div className={'OddModal backdrop' + (this.isOpened?' active':'')} ref={this.backdrop}>
-                <div className={'container' + (this.color=='green'?' green':'')}>
-                    <div className="handler"></div>
-                    <h5 onClick={this.onClick}>{this.title}</h5>
-                    {this.children}
-                </div>
+    return (
+        <div className={'OddModal backdrop' + (isOpened?' active':'')} ref={backdrop}>
+            <div className={'container' + (color=='green'?' green':'')}>
+                <div className="handler"></div>
+                <h5 onClick={onClick}>{title}</h5>
+                {children}
             </div>
-        )
-    }
+        </div>
+    )
 }

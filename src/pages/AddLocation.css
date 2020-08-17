@@ -1,9 +1,0 @@
-.postcode>div {
-    width: 100% !important;
-    height: calc(100vh - 56px) !important;
-}
-
-.postcode>div>iframe {
-    width: 100% !important;
-    height: calc(100vh - 56px) !important;
-}

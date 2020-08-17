@@ -1,0 +1,30 @@
+.postcode>div {
+    width: 100% !important;
+    height: calc(100vh - 56px) !important;
+}
+
+.postcode>div>iframe {
+    width: 100% !important;
+    height: calc(100vh - 56px) !important;
+}
+
+.AddLocation {
+    .OddButton {
+        display: block;
+        width: 155px;
+        margin: 0 auto;
+    }
+    ion-input {
+        margin: 8px 0 0 8px;
+    }
+    ion-item,
+    ion-item-divider,
+    .item-inner {
+        --border-width: 0;
+        border: none !important;
+    }
+    ion-label {
+        color: #fff !important;
+        font-weight: bold;
+    }
+}
