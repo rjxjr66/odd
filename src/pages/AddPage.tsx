@@ -7,8 +7,9 @@ import locationService from '../services/location.service';
 import { RouteComponentProps } from 'react-router';
 import { OddHeader } from '../components/OddHeader';
 import { OddModal } from '../components/OddModal';
+import { AddLocation } from './AddLocation';
 
-const AddPage: React.FC<RouteComponentProps> = ({ history }) => {
+const AddPage: React.FC<RouteComponentProps> = ({ history, location, match }) => {
   const [myLocation, setMyLocation] = React.useState<ParkingLot[] | null>(null);
   useIonViewWillEnter(()=>{
     getMyLocation()
@@ -23,7 +24,9 @@ const AddPage: React.FC<RouteComponentProps> = ({ history }) => {
       <IonContent className="white" scrollEvents={true} onIonScroll={(ev)=>setScrollY(ev.detail.scrollTop)}>
         <OddHeader history={history} scrollY={scrollY}>내 주차장</OddHeader>
         <ParkingList history={history} tab="3" list={myLocation} removable={true}></ParkingList>
-        <OddModal color="blue" title="등록하기"></OddModal>
+        <OddModal color="blue" title="등록하기">
+          <AddLocation history={history} location={location} match={match}></AddLocation>
+        </OddModal>
       </IonContent>
     </IonPage>
   );

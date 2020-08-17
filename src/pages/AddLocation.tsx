@@ -38,11 +38,11 @@ export const AddLocation: React.FC<RouteComponentProps> = ({ history }) => {
 
     const addLocation = () => {
         let geocoder = new kakao.maps.services.Geocoder();
-        geocoder.addressSearch(address, async (data: any) => {
+        geocoder.addressSearch(address.value, async (data: any) => {
             if (data.length > 0) {
                 await LocationService.addLocation({
                     name: name.current.value,
-                    address: address + ' ' + detailAddress.current.value,
+                    address: address.value + ' ' + detailAddress.current.value,
                     lat: parseFloat(data[0].y),
                     lng: parseFloat(data[0].x),
                     nParkingLot: nParkingLot.current.value,
@@ -57,19 +57,7 @@ export const AddLocation: React.FC<RouteComponentProps> = ({ history }) => {
     }
 
     return (
-        <IonPage>
-            <IonHeader>
-                <IonToolbar>
-                    <IonButtons slot="start">
-                        <IonBackButton />
-                    </IonButtons>
-                    <IonTitle>주차공간등록</IonTitle>
-                    <IonButtons slot="end">
-                        <IonButton fill="clear" onClick={addLocation}>등록</IonButton>
-                    </IonButtons>
-                </IonToolbar>
-            </IonHeader>
-            <IonContent>
+            <div className="AddLocation">
                 <div ref={layer} className='postcode'></div>
                 {!address.showPostcode ? (<IonList>
                     <IonItemGroup>
@@ -126,8 +114,7 @@ export const AddLocation: React.FC<RouteComponentProps> = ({ history }) => {
                         </IonItem>
                     </IonItemGroup>
                 </IonList>) : null}
-
-            </IonContent>
-        </IonPage>
+                <IonButton fill="clear" onClick={addLocation}>등록</IonButton>
+            </div>
     )
 };
