@@ -19,12 +19,14 @@ const AddPage: React.FC<RouteComponentProps> = ({ history, location, match }) =>
 
   const [scrollY, setScrollY] = React.useState<number>(0);
 
+  const modal = React.useRef<OddModal>();
+
   return (
     <IonPage>
       <IonContent className="white" scrollEvents={true} onIonScroll={(ev)=>setScrollY(ev.detail.scrollTop)}>
         <OddHeader history={history} scrollY={scrollY}>내 주차장</OddHeader>
         <ParkingList history={history} tab="3" list={myLocation} removable={true}></ParkingList>
-        <OddModal color="blue" title="등록하기">
+        <OddModal color="blue" title="등록하기" ref={modal}>
           <AddLocation history={history} location={location} match={match}></AddLocation>
         </OddModal>
       </IonContent>
