@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:background="#80000000" android:orientation="vertical">
+	<LinearLayout android:addStatesFromChildren="true"
+		android:layout_width="fill_parent" android:layout_height="wrap_content"
+		android:background="@android:drawable/edit_text" android:gravity="center_vertical">
+		<TextView android:id="@+id/koreanLabel" android:text="@string/korean_label"
+			android:layout_width="wrap_content" android:layout_height="fill_parent"
+			android:gravity="center" android:textColor="?android:attr/textColorSecondary"
+			android:textAppearance="?android:attr/textAppearanceLargeInverse" />
+		<EditText android:id="@+id/outputEdit" android:layout_width="wrap_content"
+			android:layout_weight="1" android:selectAllOnFocus="true"
+			android:textSize="30dip" android:layout_marginLeft="5dip"
+			android:singleLine="true" android:background="@null"
+			android:layout_height="wrap_content" android:gravity="center_vertical" />
+		<ImageButton style="@android:style/Widget.Button.Inset"
+			android:id="@+id/outputClearButton" android:src="@android:drawable/ic_delete"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:layout_marginTop="2dip" android:layout_marginRight="2dip"
+			android:layout_marginBottom="2dip" android:padding="10dip" />
+	</LinearLayout>
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		android:layout_width="fill_parent" android:layout_alignParentLeft="true"
+		android:layout_height="fill_parent" android:orientation="vertical"
+		android:gravity="bottom">
+		<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			android:layout_width="fill_parent" android:layout_alignParentLeft="true"
+			android:layout_height="fill_parent" android:gravity="top|center">
+			<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+				android:layout_width="370dip" android:orientation="vertical"
+				android:layout_height="fill_parent" android:gravity="center|bottom">
+				<ImageView android:id="@+id/dbs" android:layout_width="wrap_content"
+					android:layout_height="wrap_content" android:src="@drawable/dbs"/>
+				<TextView android:id="@+id/helperLabel" android:text="@string/type_here1"
+					android:layout_width="fill_parent" android:layout_height="wrap_content" />
+				<EditText android:id="@+id/inputEdit"
+					android:layout_height="wrap_content" android:background="@android:drawable/editbox_background"
+					android:layout_width="fill_parent" android:longClickable="false" />
+				<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+					android:layout_width="fill_parent" android:layout_alignParentLeft="true"
+					android:layout_height="wrap_content" android:gravity="top|center">
+					<Button android:id="@+id/copyButton" android:layout_width="wrap_content"
+						android:layout_height="wrap_content" android:width="100dip"
+						android:text="@string/copy" android:layout_marginRight="20dip" />
+					<Button android:id="@+id/modeButton" android:layout_width="wrap_content"
+						android:layout_height="wrap_content" android:width="100dip"
+						android:text="@string/dbs_off" />
+					<!--
+						<ImageButton style="@android:style/Widget.Button.Inset"
+						android:id="@+id/helpButton" android:layout_width="wrap_content"
+						android:layout_height="wrap_content" android:width="100dip"
+						android:src="@android:drawable/stat_sys_warning"
+						android:text="@string/help" android:layout_marginLeft="20dip" />
+					-->
+					<Button android:id="@+id/helpButton" android:layout_width="wrap_content"
+						android:layout_height="wrap_content" android:width="100dip"
+						android:text="@string/help" android:layout_marginLeft="20dip" />
+				</LinearLayout>
+
+			</LinearLayout>
+			<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+				android:layout_alignParentRight="true" android:layout_width="wrap_content"
+				android:layout_height="fill_parent" android:orientation="vertical" android:gravity="bottom">
+				<TextView android:id="@+id/previewLabel"
+					android:layout_height="wrap_content"
+					android:layout_alignParentRight="true" android:text="Preview"
+					android:layout_width="fill_parent" android:gravity="center" />
+				<Button android:id="@+id/previewButton" android:layout_below="@id/previewLabel"
+					android:layout_width="100dip" android:layout_height="110dip"
+					android:layout_alignParentRight="true" android:layout_gravity="center_horizontal"
+					android:text="_" android:textSize="80dip" />
+			</LinearLayout>
+		</LinearLayout>
+	</LinearLayout>
+</LinearLayout>
