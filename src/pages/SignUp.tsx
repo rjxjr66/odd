@@ -1,6 +1,6 @@
 import React from 'react';
-import { IonPage, IonItem, IonLabel, IonIcon, IonInput, IonButton, IonContent, IonHeader, IonToolbar, IonButtons, IonBackButton, IonTitle } from '@ionic/react';
-import './SignIn.css'
+import { IonPage, IonItem, IonLabel, IonIcon, IonInput, IonContent, IonHeader, IonToolbar, IonButtons, IonBackButton, IonTitle } from '@ionic/react';
+import './SignUp.scss'
 import { personCircleOutline, keyOutline, pricetagOutline, callOutline, carOutline } from 'ionicons/icons';
 
 import { RouteComponentProps } from 'react-router';
@@ -8,7 +8,7 @@ import { RouteComponentProps } from 'react-router';
 import userService from '../services/user.service';
 import { OddButton } from '../components/OddButton';
 
-const SignIn: React.FC<RouteComponentProps> = ({ history }) => {
+const SignUp: React.FC<RouteComponentProps> = ({ history }) => {
     const email = React.useRef<any>();
     const password = React.useRef<any>();
     const passwordRepeat = React.useRef<any>();
@@ -16,7 +16,7 @@ const SignIn: React.FC<RouteComponentProps> = ({ history }) => {
     const tel = React.useRef<any>();
     const carNumber = React.useRef<any>();
 
-    const signin = async ()=>{
+    const signup = async ()=>{
         if (password.current.value !== passwordRepeat.current.value) {
             alert("비밀번호와 비밀번호 확인이 다릅니다.")
         } else {
@@ -32,7 +32,7 @@ const SignIn: React.FC<RouteComponentProps> = ({ history }) => {
     }
 
     return (
-        <IonPage>
+        <IonPage className="SignUp">
             <IonHeader>
                 <IonToolbar>
                     <IonButtons slot="start">
@@ -79,11 +79,11 @@ const SignIn: React.FC<RouteComponentProps> = ({ history }) => {
                     <IonInput ref={carNumber} placeholder="차량번호"></IonInput>
                 </IonItem>
                 <div className="buttons">
-                    <OddButton onClick={signin}>회원가입</OddButton>
+                    <OddButton onClick={signup}>회원가입</OddButton>
                 </div>
             </IonContent>
         </IonPage>
     )
 }
 
-export default SignIn
+export default SignUp

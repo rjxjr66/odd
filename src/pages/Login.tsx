@@ -1,18 +1,13 @@
 import React from 'react';
 import userService from '../services/user.service';
+import "./Login.scss";
 
 import {
-    IonIcon,
-    IonLabel,
     IonPage,
     IonContent,
-    IonItem,
-    IonInput,
-    IonButton
+    IonInput
 } from '@ionic/react';
 
-import './Login.scss'
-import { personCircleOutline, keyOutline } from 'ionicons/icons';
 import { RouteComponentProps } from 'react-router';
 import { OddButton } from '../components/OddButton';
 
@@ -26,8 +21,8 @@ const Login: React.FC<RouteComponentProps> = ({ history }) => {
         }
     }
 
-    const signin = () => {
-        history.push('/signin');
+    const signup = () => {
+        history.push('/signup');
     }
 
     const id = React.useRef<any>()
@@ -37,13 +32,12 @@ const Login: React.FC<RouteComponentProps> = ({ history }) => {
         <IonPage className="Login">
             <IonContent>
                 <h1>어디대</h1>
-
                 <div className="login-form">
-                    <IonInput ref={id} placeholder="이메일"></IonInput>
-                    <IonInput type="password" ref={password} placeholder="비밀번호"></IonInput>
+                    <IonInput className="emailInput" ref={id} placeholder="이메일"></IonInput>
+                    <IonInput className="passwordInput" type="password" ref={password} placeholder="비밀번호"></IonInput>
                     <div className="buttons">
                         <OddButton onClick={login}>로그인</OddButton>
-                        <OddButton onClick={signin}>회원가입</OddButton>
+                        <OddButton onClick={signup}>회원가입</OddButton>
                     </div>
                 </div>
             </IonContent>

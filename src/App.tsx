@@ -28,7 +28,7 @@ import './theme/variables.css';
 import './App.css';
 
 import Login from './pages/Login';
-import SignIn from './pages/SignIn';
+import SignUp from './pages/SignUp';
 import LocationInfo from './pages/LocationInfo';
 import { AddLocation } from './pages/AddLocation';
 import firebase from 'firebase';
@@ -53,21 +53,21 @@ const App: React.FC = () => {
     }
   })
 
-  return (<IonApp>
-    <IonReactRouter>
-
-      {loading && !logedIn ? (
-        <IonLoading
-          isOpen={true}
-          message={'기다려 주세요...'}
-        />
-      ) : (
+  return (
+    <IonApp>
+      <IonReactRouter>
+        {loading && !logedIn ? (
+          <IonLoading
+            isOpen={true}
+            message={'기다려 주세요...'}
+          />
+        ) : (
           <IonRouterOutlet>
             <Route path="/home" component={SearchPage} />
             <Route path="/reserve" component={ReservationPage} />
             <Route path="/mylot" component={AddPage} />
             <Route path="/mypage" component={MyPage} />
-            <Route path="/signin" component={SignIn} exact={true} />
+            <Route path="/signup" component={SignUp} exact={true} />
             <Route path="/info/:tab/:id" component={LocationInfo} />
             <Route path="/add" component={AddLocation} />
             <Route path="/login" component={Login} exact={true} />
@@ -76,8 +76,8 @@ const App: React.FC = () => {
             <Route path="/" render={() => <Redirect to={logedIn ? '/home' : '/login'} />} exact={true} />
           </IonRouterOutlet>
         )}
-    </IonReactRouter>
-  </IonApp>
+      </IonReactRouter>
+    </IonApp>
   )
 };
 

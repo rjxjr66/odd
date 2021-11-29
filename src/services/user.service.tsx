@@ -10,7 +10,7 @@ class UserService {
     }
 
     async setUser(uid: string) {
-        const querySnapshot = await firebase.firestore().collection('/odd/ZEmHGVHq05UCeQHclQ2u/users')
+        const querySnapshot = await firebase.firestore().collection('/odd/QsSwHKZq2imOJUpVY7dS/users')
             .where('id', '==', uid).get();
 
         if (querySnapshot.size == 1) {
@@ -32,7 +32,7 @@ class UserService {
             password
         );
 
-        await firebase.firestore().collection('/odd/ZEmHGVHq05UCeQHclQ2u/users').add({
+        await firebase.firestore().collection('/odd/QsSwHKZq2imOJUpVY7dS/users').add({
             id: result.user?.uid,
             email,
             name,
